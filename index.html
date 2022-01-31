@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>I G C</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=bffc1201fcbce4d27398c8c4ae3f48ec">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=34f9b351b7076f97babcdac3c1081100">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3"
+                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><a
+                            class="navbar-brand" href="#">I G C</a>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        aria-expanded="false" data-bs-toggle="dropdown" href="#"><span
+                                            class="d-none d-lg-inline me-2 text-gray-600 small">Input
+                                            Supplier</span><img class="border rounded-circle img-profile"
+                                            src="assets/img/avatars/avatar5.jpeg?h=35dc45edbcda6b3fc752dab2b0f082ea"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity
+                                            log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Farmer's
+                                                    Count</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span id="farmer_count"></span></div>
+                                        </div>
+                                        <div class="col-auto"><i
+                                                class="fas fa-sort-numeric-up-alt fa-2x"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1">
+                                                <span>fertilizer bid status</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span id="fertilizer_bid_status"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto" id="fert_icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>seed bid status</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span id="seeds_bid_status"></span></div>
+                                        </div>
+                                        <div class="col-auto" id="seed_icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1">
+                                                <span>pesticides bid status</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0">
+                                                <span id="pest_bid_status"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto" id="pest_icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Start: Chart -->
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Bid Activity</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
+                                            aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
+                                                class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a
+                                                class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item"
+                                                href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <canvas id="doughnutChart"></canvas>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8"><span>Submitted&nbsp;</span></div>
+                                        <div class="col"><strong id="bid_sub"></strong></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8"><span>Won</span></div>
+                                        <div class="col"><strong id="bid_won"></strong></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8"><span>Lost</span></div>
+                                        <div class="col"><strong id="bid_lost"></strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">No. of orders</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
+                                            aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
+                                                class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a
+                                                class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item"
+                                                href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <ul class="nav nav-pills nav-fill" role="tablist">
+                                            <li class="nav-item" role="presentation"><a class="nav-link active"
+                                                    role="tab" data-bs-toggle="pill" href="#tab-1">Fertilizer</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link" role="tab"
+                                                    data-bs-toggle="pill" href="#tab-2">Pesticides</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link" role="tab"
+                                                    data-bs-toggle="pill" href="#tab-3">Seeds</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" role="tabpanel" id="tab-1">
+                                                <div><canvas id="fert_chart"></canvas> </div>
+                                            </div>
+                                            <div class="tab-pane fade" role="tabpanel" id="tab-2">
+                                                <div><canvas id="pest_chart"></canvas></div>
+                                            </div>
+                                            <div class="tab-pane fade" role="tabpanel" id="tab-3">
+                                                <div><canvas id="seed_chart"></canvas></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col text-end"><button class="btn btn-warning" type="button"
+                                                style="color: rgb(0,0,0);" data-toggle="modal" data-target="#Submitbid"
+                                                data-bs-target="#Submitbid" data-bs-toggle="modal">Start Bid</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Top Bids</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
+                                            aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
+                                                class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a
+                                                class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item"
+                                                href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <ul class="nav nav-tabs nav-fill" role="tablist">
+                                            <li class="nav-item" role="presentation"><a class="nav-link active"
+                                                    role="tab" data-bs-toggle="tab" href="#tab-4">Fertilizer</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link" role="tab"
+                                                    data-bs-toggle="tab" href="#tab-5">Pesticides</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link" role="tab"
+                                                    data-bs-toggle="tab" href="#tab-6">Seeds</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Company Name</th>
+                                                                <th>FPO</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="fert_top_bids">
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="tab-5">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Company Name</th>
+                                                                <th>FPO</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="pest_top_bids">
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="tab-6">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Company Name</th>
+                                                                <th>FPO</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="seeds_top_bids">
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End: Chart -->
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="Submitbid">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--bs-indigo);">
+                    <h4 class="modal-title" style="color: rgb(255,255,255);">Submit Bid</h4><button type="button"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-2">
+                            <div class="col"><strong>Select Item</strong></div>
+                            <div class="col"><select class="form-select">
+                                    <option value="fert">Fertilizer</option>
+                                    <option value="pest">Pesticide</option>
+                                    <option value="seeds">seeds</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col"><strong>FPO Name</strong></div>
+                            <div class="col"><select class="form-select">
+                                    <option value="seedsfpo">Seeds FPO</option>
+                                    <option value="dharani">Dharani</option>
+                                    <option value="farmlite">Farmlite</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col"><strong>Warehouse Location</strong></div>
+                            <div class="col"><select class="form-select">
+                                    <option value="hyd">Hyderabad</option>
+                                    <option value="kurnool">Kurnool</option>
+                                    <option value="anantha">Ananthapur</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col"><strong>Company Name</strong></div>
+                            <div class="col"><select class="form-select">
+                                    <option value="1">E-fresh</option>
+                                    <option value="2">Coramandal</option>
+                                    <option value="3">Indo-Gulf</option>
+                                    <option value="4">Bharat rasayan</option>
+                                    <option value="5">Gujrat Narmada</option>
+                                    <option value="6">Chambal Fertilizers</option>
+                                    <option value="7">Hindustan Fertilizers</option>
+                                    <option value="8">Deepak Fertilizers</option>
+                                    <option value="9">Deepak Fertilizers</option>
+                                    <option value="10">Deepak Fertilizers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><strong>Amount / Ton</strong></div>
+                            <div class="col"><input class="form-control" type="text"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background: var(--bs-indigo);"><button class="btn btn-light"
+                        type="button" data-bs-dismiss="modal"
+                        style="background: var(--bs-gray-dark);color: var(--bs-white);">Close</button><button
+                        class="btn btn-primary" type="button"
+                        style="background: var(--bs-yellow);color: rgb(0,0,0);">Bid Now</button></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var data = {"username":"company1","pwd":"igcadmin@123"};
+        fetch('http://3.138.189.39:5000/dasboard', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        }).then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            console.log(data.bid_status['fertilizer']);
+            document.getElementById('farmer_count').innerHTML = data.farmers_count;
+            var fert_bid = data.bid_status['fertilizer']; 
+            var thumbs_up =`<i class="fas fa-thumbs-up fa-2x"></i>`;
+            var thumbs_down =`<i class="fas fa-thumbs-down fa-2x"></i>`;
+            var in_progress =`<i class="fas fa-hourglass-half fa-2x"></i>`;
+            if(fert_bid === null){
+                fert_bid_stat = "In Progress";
+                document.getElementById('fertilizer_bid_status').innerHTML = fert_bid_stat;
+                document.getElementById('fertilizer_bid_status').style.color = "#CCCC00";
+                document.getElementById('fert_icon').innerHTML = in_progress;
+            }else if(fert_bid === "won"){
+                fert_bid_stat = "Won";
+                document.getElementById('fertilizer_bid_status').innerHTML = fert_bid_stat;
+                document.getElementById('fertilizer_bid_status').style.color = "#ADFF2F";
+                document.getElementById('fert_icon').innerHTML = thumbs_up;
+            }else if(fert_bid === "lost"){
+                fert_bid_stat = "Lost";
+                document.getElementById('fertilizer_bid_status').innerHTML = fert_bid_stat;
+                document.getElementById('fertilizer_bid_status').style.color = "red";
+                document.getElementById('fert_icon').innerHTML = thumbs_down;
+            }
+            var pest_bid = data.bid_status['pesticides'];
+            if(pest_bid === null){
+                pest_bid_stat = "In Progress";
+                document.getElementById('pest_bid_status').innerHTML = pest_bid_stat;
+                document.getElementById('pest_bid_status').style.color = "#CCCC00";
+                document.getElementById('pest_icon').innerHTML = in_progress;
+            }else if(pest_bid === "won"){
+                pest_bid_stat = "Won";
+                document.getElementById('pest_bid_status').innerHTML = pest_bid_stat;
+                document.getElementById('pest_bid_status').style.color = "#ADFF2F";
+                document.getElementById('pest_icon').innerHTML = thumbs_up;
+            }else if(pest_bid === "lost"){
+                pest_bid_stat = "Lost";
+                document.getElementById('pest_bid_status').innerHTML = pest_bid_stat;
+                document.getElementById('pest_bid_status').style.color = "red";
+                document.getElementById('pest_icon').innerHTML = thumbs_down;
+            }
+            var seeds_bid = data.bid_status['seeds'];
+            if(seeds_bid === null){
+                seeds_bid_stat = "In Progress";
+                document.getElementById('seeds_bid_status').innerHTML = seeds_bid_stat;
+                document.getElementById('seeds_bid_status').style.color = "#CCCC00";
+                document.getElementById('seed_icon').innerHTML = in_progress;
+            }else if(seeds_bid === "won"){
+                seeds_bid_stat = "Won";
+                document.getElementById('seeds_bid_status').innerHTML = seeds_bid_stat;
+                document.getElementById('seeds_bid_status').style.color = "#00ff19";
+                document.getElementById('seed_icon').innerHTML = thumbs_up;
+            }else if(seeds_bid === "lost"){
+                seeds_bid_stat = "Lost";
+                document.getElementById('seeds_bid_status').innerHTML = seeds_bid_stat;
+                document.getElementById('seeds_bid_status').style.color = "red";
+                document.getElementById('seed_icon').innerHTML = thumbs_down;
+            }
+
+            //doughnutChart
+            var ctx = document.getElementById('doughnutChart').getContext('2d');
+            var doughnutChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Won', 'Lost'],
+                    datasets: [
+                        {
+                            data: [data.bid_activity['won'],data.bid_activity['lost']],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                            ],
+                            hoverOffset: 4
+                        },
+                    ]
+                },
+                options:{
+                    responsive: true,
+                    maintainAspectRatio: true,
+                }
+            });
+            document.getElementById('bid_sub').innerHTML = data.bid_activity['submitted'];
+            document.getElementById('bid_won').innerHTML = data.bid_activity['won'];
+            document.getElementById('bid_lost').innerHTML = data.bid_activity['lost'];
+
+            // fertilizer_bar_chart
+            var fert_dharani = data.no_of_orders['fertilizer'][0]['dharani'];
+            var fert_seeds = data.no_of_orders['fertilizer'][1]['seeds'];
+            // console.log(fert_dharani);
+            // console.log(fert_seeds);
+            var ctx = document.getElementById('fert_chart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['jan','feb','mar','apr','may','june','july','aug','sep','oct','nov','dec'],
+                    datasets: [
+                        {
+                            label: 'seeds',
+                            data: fert_seeds,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label:"dharani",
+                            data: fert_dharani,
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            //pesticides_bar_chart
+            var pest_dharani = data.no_of_orders['pesticides'][0]['dharani'];
+            var pest_seeds = data.no_of_orders['pesticides'][1]['seeds'];
+            // console.log(pest_dharani);
+            // console.log(pest_seeds);
+            var ctx = document.getElementById('pest_chart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['jan','feb','mar','apr','may','june','july','aug','sep','oct','nov','dec'],
+                    datasets: [
+                        {
+                            label: 'seeds',
+                            data: pest_seeds,
+                            backgroundColor: [
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(255, 206, 86, 1)',
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label:"dharani",
+                            data: pest_dharani,
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(75, 192, 192, 1)',
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            //seeds_bar_chart
+            var seeds_dharani = data.no_of_orders['seeds'][0]['dharani'];
+            var seeds_seeds = data.no_of_orders['seeds'][1]['seeds'];
+            console.log(seeds_dharani);
+            console.log(seeds_seeds);
+            var ctx = document.getElementById('seed_chart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['jan','feb','mar','apr','may','june','july','aug','sep','oct','nov','dec'],
+                    datasets: [
+                        {
+                            label: 'seeds',
+                            data: seeds_seeds,
+                            backgroundColor: [
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(153, 102, 255, 1)',
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label:"dharani",
+                            data: seeds_dharani,
+                            backgroundColor: [
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        }
+                    }
+                }
+            });
+            var top_fert  =  data.top_bids['fertilizer'];
+            var top_pest  =  data.top_bids['pesticides'];
+            var top_seeds =  data.top_bids['seeds'];
+            var i = 0;
+            while(i<=Object.keys(top_seeds).length){
+                for (var keys in top_seeds[i]) {
+                    //console.log(keys, ':', top_seeds[i][keys])
+                    var table = document.getElementById("seeds_top_bids");
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = keys;
+                    cell2.innerHTML = top_seeds[i][keys];
+                }
+                i++;
+            }
+            var j = 0;
+            while(j<=Object.keys(top_pest).length){
+                for (var keys in top_pest[j]) {
+                    //console.log(keys, ':', top_pest[i][keys])
+                    var table = document.getElementById("pest_top_bids");
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = keys;
+                    cell2.innerHTML = top_pest[j][keys];
+                }
+                j++;
+            }
+            var k = 0;
+            while(k<=Object.keys(top_fert).length){
+                for (var keys in top_fert[k]) {
+                    //console.log(keys, ':', top_fert[i][keys])
+                    var table = document.getElementById("fert_top_bids");
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = keys;
+                    cell2.innerHTML = top_fert[k][keys];
+                }
+                k++;
+            }
+
+            
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267"></script>
+</body>
+
+</html>
